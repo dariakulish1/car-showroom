@@ -1,0 +1,18 @@
+.searchbar {
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    &__input-text {
+        border: 1px solid #999999;
+        padding: 10px;
+        padding-left: 23px;
+        border-radius: 6px;
+    }
+    &__input-icon {
+        position: absolute;
+        top: 26px;
+        left: 7px;
+        color: #999999;
+    }
+}

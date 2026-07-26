@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="car-showroom">
       <Routes>
-        <Route path="/" element={<HomePage vehicleData={vehicleData.products} />} />
+        <Route path="/" element={<HomePage vehicleProducts={vehicleData.products} />} />
       </Routes>
     </div>
   );
