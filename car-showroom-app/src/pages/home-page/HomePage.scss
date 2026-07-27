@@ -5,10 +5,37 @@
         grid-template-columns: repeat(4, 1fr);
         gap: 20px;
     }
+    &__search-filter-section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
     &__search-filter-box {
         display: flex;
         flex-direction: row;
         gap: 10px;
-        
+        align-items: center;
+        width: 40%;
+        margin-bottom: 10px;
     }
+    @media screen and (max-width: 700px) {
+        &__vehicle-cards {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        &__search-filter-box {
+            width: 100%;
+        }
+      }
+      @media screen and (min-width: 700px) and (max-width: 1024px) {
+        &__vehicle-cards {
+            grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media screen and (min-width: 1024px) and (max-width: 1300px) {
+        &__vehicle-cards {
+            grid-template-columns: repeat(3, 1fr);
+        }
+      }
 }

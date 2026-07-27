@@ -1,0 +1,139 @@
+.vehicle-info-page {
+    padding: 20px;
+    &__title-section {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__back-btn {
+        text-decoration: none;
+        color: black;
+        border: 1px solid black;
+        border-radius: 6px;
+        padding: 5px 10px;
+        transition: all 0.3s ease;
+        &:hover {
+            background: #eee;
+        }
+    }
+    &__main-info-section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    &__info-image {
+        width: 500px;
+        object-fit: cover;
+    }
+    &__info-text {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    &__info-text-decoration {
+        margin: 0px;
+        padding: 0px;
+    }
+    &__user-review {
+        display: flex;
+        flex-direction: row;
+        gap: 6px;
+        align-items: center;
+    }
+    &__user-rating {
+        border-radius: 999px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 25px;
+        height: 25px;
+    }
+    &__user-comment-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        gap: 10px;
+    }
+    &__comment-box {
+        border: 1px solid #999999;
+        border-radius: 10px;
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+    &__user-icon {
+        border-radius: 999px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background: #999999;
+    }
+    &__reviews-section {
+        display: flex;
+        flex-direction: column;
+    }
+    &__reviews-and-comment-section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 10px 20px;
+    }
+    &__comment-section {
+        width: 100%;
+    }
+    &__title-comment-text {
+        margin: 0px;
+        padding: 0px;
+        margin-bottom: 10px;
+    }
+    &__comment-input {
+        width: 100%;
+        border: 1px solid #999999;
+        border-radius: 6px;
+        padding: 10px;
+        margin-top: 10px;
+    }
+    &__send-btn {
+        cursor: pointer;
+        border: 1px solid #2d6cff;
+        background: #608df7;
+        color: white;
+        border-radius: 6px;
+        padding: 10px 15px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+    &__user-boxes-section {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    &__user-comment-box {
+        border: 1px solid #999999;
+        border-radius: 6px;
+        padding: 10px;
+    }
+    @media screen and (max-width: 1024px) {
+        &__main-info-section {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+        &__info-text {
+            align-items: center;
+            text-align: center;
+            max-width: 450px;
+        }
+      }
+      @media screen and (max-width: 700px) {
+        &__reviews-and-comment-section {
+            grid-template-columns: repeat(1, 1fr);
+        }
+      }
+}
