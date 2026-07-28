@@ -3,7 +3,7 @@ React SPA for browsing vehicles, filtering models, viewing details, and adding c
 
 ## Live Demo
 
-🔗 https://car-showroom-mv05rm41m-darias-projects-91f8a453.vercel.app/
+🔗 https://car-showroom-app-psi.vercel.app/
 
 ## GitHub Repository
 
