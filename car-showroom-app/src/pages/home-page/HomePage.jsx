@@ -5,9 +5,10 @@ import VehicleCard from "../../components/VehicleCard/VehicleCard.jsx";
 import FilterVehicle from "../../components/FilterVehicle/FilterVehicle.jsx";
 import { Circles } from "react-loader-spinner";
 
-const HomePage = ({ vehicleProducts, isLoading }) => {
+const HomePage = ({ vehicleProducts, isLoading, setIsLoading }) => {
   const [searchResults, setSearchResults] = useState(null);
   const [filterResults, setFilterResults] = useState(null);
+  const [isSearching, setIsSearching] = useState(false);
 
   const handleSearchChange = useCallback((products) => {
     setSearchResults(products);
@@ -47,6 +48,7 @@ const HomePage = ({ vehicleProducts, isLoading }) => {
         <h1>CAR SHOWROOM</h1>
         <div className="home-page__search-filter-box">
           <Searchbar
+            setIsLoading={setIsLoading}
             vehicleProducts={vehicleProducts}
             onFilterChange={handleSearchChange}
           />

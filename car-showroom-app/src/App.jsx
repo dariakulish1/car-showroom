@@ -26,7 +26,7 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<HomePage isLoading={isLoading} vehicleProducts={vehicleData.products} />}
+          element={<HomePage isLoading={isLoading} setIsLoading={setIsLoading} vehicleProducts={vehicleData.products} />}
         />
         <Route
           path="/vehicles/:vehicleId"

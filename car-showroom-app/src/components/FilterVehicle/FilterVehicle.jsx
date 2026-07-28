@@ -146,7 +146,7 @@ const FilterVehicle = ({ vehicleProducts, onFilterChange }) => {
                 value={maxPrice}
                 onChange={(event) => setMaxPrice(Number(event.target.value))}
               />
-              <p className="filter-section__price-text">{maxPrice}</p>
+              <p className="filter-section__price-text">0-{maxPrice}</p>
             </div>
           </div>
           <div>

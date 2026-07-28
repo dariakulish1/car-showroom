@@ -3,20 +3,28 @@ import { Link, useParams } from "react-router-dom";
 import "./VehicleInfoPage.scss";
 import SimpleImageSlider from "react-simple-image-slider";
 import { Circles } from "react-loader-spinner";
+import Input from "../../components/Input/Input";
 
 const VehicleInfoPage = () => {
   const { vehicleId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [vehicleData, setVehicleData] = useState([]);
   const [commentText, setCommentText] = useState('');
+  const [nameText, setNameText] = useState('');
   const [rateChoice, setRateChoice] = useState(1);
   const [comments, setComments] = useState([]);
   const [rates, setRates] = useState([]);
+  const [nameError, setNameError] = useState(false);
+  const [commentError, setCommentError] = useState(false);
 
   const handleCommentChange = (event) => {
     const value = event.target.value;
     setCommentText(value);
-    console.log(value);
+  };
+
+  const handleNameChange = (event) => {
+    const value = event.target.value;
+    setNameText(value);
   };
 
   const handleRateChange = (event) => {
@@ -30,11 +38,19 @@ const VehicleInfoPage = () => {
   }, [vehicleId]);
 
   const handleSendComment = () => {
-    if (!commentText.trim()) return;
+    const isNameEmpty = !nameText.trim();
+    const isCommentEmpty = !commentText.trim();
+
+    setNameError(isNameEmpty);
+    setCommentError(isCommentEmpty);
+    if (isNameEmpty || isCommentEmpty) {
+      return;
+    }
 
     const newComment = {
       vehicleId,
       comment: commentText,
+      name: nameText,
       rate: rateChoice,
     };
 
@@ -49,6 +65,8 @@ const VehicleInfoPage = () => {
     );
     setCommentText("");
     setRateChoice(1);
+    setNameError(false);
+    setCommentError(false);
   };
 
   useEffect(() => {
@@ -134,6 +152,10 @@ const VehicleInfoPage = () => {
         </div>
         <div className="vehicle-info-page__comment-section">
           <h3 className="vehicle-info-page__title-comment-text">Add your comment</h3>
+            <div className="vehicle-info-page__user-form-field">
+              <Input handleNameChange={handleNameChange} value={nameText} type="text" inputPlaceholder="Name" inputLabel="Name" />
+              {nameError && <p style={{color: "red"}}>The name field must not be empty</p>}
+            </div>
             <p>Rate:</p>
             <div>
               <input type="radio" id="rateChoice1" name="rate" value={1} checked={rateChoice === 1} onChange={handleRateChange}/>
@@ -147,7 +169,10 @@ const VehicleInfoPage = () => {
               <input type="radio" id="rateChoice5" name="rate" value={5} checked={rateChoice === 5} onChange={handleRateChange}/>
               <label for="rateChoice5">5</label>
             </div>
-          <textarea className="vehicle-info-page__comment-input" type='text' value={commentText} onChange={handleCommentChange} placeholder='Comment' />
+            <div className="vehicle-info-page__user-form-field">
+              <textarea className="vehicle-info-page__comment-input" type='text' value={commentText} onChange={handleCommentChange} placeholder='Comment' />
+              {commentError && <p style={{color: "red"}}>The comment field must not be empty</p>}
+            </div>
           <button onClick={handleSendComment} className="vehicle-info-page__send-btn" type="button" name="sendButton">Send</button>
           {comments.length > 0 && (
             <>
@@ -155,15 +180,18 @@ const VehicleInfoPage = () => {
               <div className="vehicle-info-page__user-boxes-section">
                 {comments.map((item, index) => (
                   <div key={index} className="vehicle-info-page__user-comment-box">
-                    <div className="vehicle-info-page__user-rating" 
-                      style={{
-                        background:
-                          item.rate > 4
-                            ? "#4FB056"
-                            : item.rate >= 3
-                              ? "#D9C334"
-                              : "#CF1600",
-                      }}><p style={{padding: '0px', margin: '0px'}}>{item.rate}</p></div>
+                    <div className="vehicle-info-page__name-rate-section">
+                      <b>{item.name}</b>
+                      <div className="vehicle-info-page__user-rating" 
+                        style={{
+                          background:
+                            item.rate > 4
+                              ? "#4FB056"
+                              : item.rate >= 3
+                                ? "#D9C334"
+                                : "#CF1600",
+                        }}><p style={{padding: '0px', margin: '0px'}}>{item.rate}</p></div>
+                    </div>
                     <p>{item.comment}</p>
                   </div>
                 ))}

@@ -22,6 +22,7 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         margin-bottom: 20px;
+        padding: 10px 20px;
     }
     &__info-image {
         width: 500px;
@@ -36,7 +37,7 @@
         margin: 0px;
         padding: 0px;
     }
-    &__user-review {
+    &__user-review, &__name-rate-section {
         display: flex;
         flex-direction: row;
         gap: 6px;
@@ -90,8 +91,13 @@
         padding: 0px;
         margin-bottom: 10px;
     }
+    &__user-form-field {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
     &__comment-input {
-        width: 100%;
+        width: 95%;
         border: 1px solid #999999;
         border-radius: 6px;
         padding: 10px;
