@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import HomePage from "./pages/home-page/HomePage";
 import VehicleInfoPage from "./pages/vehicle-info-page/VehicleInfoPage";
@@ -18,8 +17,6 @@ function App() {
       })
       .catch((err) => console.log("error", err));
   }, []);
-
-  console.log("vehicleData App", vehicleData);
 
   return (
     <div className="car-showroom">
