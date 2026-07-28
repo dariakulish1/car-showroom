@@ -13,7 +13,6 @@ const VehicleInfoPage = () => {
   const [nameText, setNameText] = useState('');
   const [rateChoice, setRateChoice] = useState(1);
   const [comments, setComments] = useState([]);
-  const [rates, setRates] = useState([]);
   const [nameError, setNameError] = useState(false);
   const [commentError, setCommentError] = useState(false);
 
@@ -159,15 +158,15 @@ const VehicleInfoPage = () => {
             <p>Rate:</p>
             <div>
               <input type="radio" id="rateChoice1" name="rate" value={1} checked={rateChoice === 1} onChange={handleRateChange}/>
-              <label for="rateChoice1">1</label>
+              <label htmlFor="rateChoice1">1</label>
               <input type="radio" id="rateChoice2" name="rate" value={2} checked={rateChoice === 2} onChange={handleRateChange}/>
-              <label for="rateChoice2">2</label>
+              <label htmlFor="rateChoice2">2</label>
               <input type="radio" id="rateChoice3" name="rate" value={3} checked={rateChoice === 3} onChange={handleRateChange}/>
-              <label for="rateChoice3">3</label>
+              <label htmlFor="rateChoice3">3</label>
               <input type="radio" id="rateChoice4" name="rate" value={4} checked={rateChoice === 4} onChange={handleRateChange}/>
-              <label for="rateChoice4">4</label>
+              <label htmlFor="rateChoice4">4</label>
               <input type="radio" id="rateChoice5" name="rate" value={5} checked={rateChoice === 5} onChange={handleRateChange}/>
-              <label for="rateChoice5">5</label>
+              <label htmlFor="rateChoice5">5</label>
             </div>
             <div className="vehicle-info-page__user-form-field">
               <textarea className="vehicle-info-page__comment-input" type='text' value={commentText} onChange={handleCommentChange} placeholder='Comment' />

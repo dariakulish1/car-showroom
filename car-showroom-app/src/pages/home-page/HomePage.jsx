@@ -8,7 +8,6 @@ import { Circles } from "react-loader-spinner";
 const HomePage = ({ vehicleProducts, isLoading, setIsLoading }) => {
   const [searchResults, setSearchResults] = useState(null);
   const [filterResults, setFilterResults] = useState(null);
-  const [isSearching, setIsSearching] = useState(false);
 
   const handleSearchChange = useCallback((products) => {
     setSearchResults(products);
